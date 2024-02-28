@@ -117,5 +117,5 @@ jobs:
           source /home/runner/.venv/bin/activate
 
       - name: "Install dependencies"
-        run: uv pip install --upgrade --editable .[dev] -v
+        run: uv pip install -v --upgrade --editable .[dev]
 
