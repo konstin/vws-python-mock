@@ -117,5 +117,5 @@ jobs:
           source /home/runner/.venv/bin/activate
 
       - name: "Install dependencies"
-        run: RUST_LOG=reqwest=debug,hyper=debug uv pip install -v --upgrade --editable .[dev]
+        run: RUST_LOG=reqwest=debug,hyper=debug uv pip install --upgrade --editable .[dev] -v
 
