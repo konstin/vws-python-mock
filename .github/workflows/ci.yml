@@ -4,7 +4,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, uv-debug]
   pull_request:
     branches: [main]
   schedule:
@@ -136,7 +136,7 @@ jobs:
           curl -LsSf https://astral.sh/uv/install.sh | sh
           uv venv /home/runner/.venv
           source /home/runner/.venv/bin/activate
-          uv pip install --upgrade --editable .[dev]
+          uv pip install -v --upgrade --editable .[dev]
 
       # We have seen issues with running out of disk space on test_docker
       - name: Free Disk Space (Ubuntu)
