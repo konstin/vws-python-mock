@@ -131,12 +131,14 @@ jobs:
           LARGE_SECRET_PASSPHRASE: ${{ secrets.PASSPHRASE_FOR_VUFORIA_SECRETS }}
 
       # We do not use the cache action as uv is faster than the cache action.
-      - name: "Install dependencies"
+      - name: "Setup uv and venv"
         run: |
           curl -LsSf https://astral.sh/uv/install.sh | sh
           uv venv /home/runner/.venv
           source /home/runner/.venv/bin/activate
-          uv pip install -v --upgrade --editable .[dev]
+
+      - name: "Install dependencies"
+        run: uv pip install -v --upgrade --editable .[dev]
 
       # We have seen issues with running out of disk space on test_docker
       - name: Free Disk Space (Ubuntu)
